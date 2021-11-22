@@ -69,30 +69,27 @@
 
     </div>
     <div class="col-4">
-        @if (Model.MenuToDisplay == PaulsAutoParts.ViewModelLayer.HomeViewModel.Menus.Maintenance)
-        {
-            <div class="card">
-                <div class="card-body">
-                    <div class="list-group">
-                        <a asp-action="ProductIndex"
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group">
+                    <a asp-action="ProductIndex"
                        asp-controller="Product" class="list-group-item">
-                            Products
-                        </a>
-                        <a asp-action="CustomerMaintIndex"
+                        Products
+                    </a>
+                    <a asp-action="CustomerMaintIndex"
                        asp-controller="CustomerMaint" class="list-group-item">
-                            Customers and Orders
-                        </a>
-                        <a asp-action="PromoCodeIndex"
+                        Customers and Orders
+                    </a>
+                    <a asp-action="PromoCodeIndex"
                        asp-controller="PromoCode" class="list-group-item">
-                            Promotional Codes
-                        </a>
-                        <a asp-action="VehicleTypeIndex"
+                        Promotional Codes
+                    </a>
+                    <a asp-action="VehicleTypeIndex"
                        asp-controller="VehicleType" class="list-group-item">
-                            Vehicle Types
-                        </a>
-                    </div>
+                        Vehicle Types
+                    </a>
                 </div>
             </div>
-        }
+        </div>
     </div>
 </div>

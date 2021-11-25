@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+@section HeadStyles {
+
+}
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Paul's Auto Parts</h1>
@@ -28,7 +31,7 @@
                 <h3 class="text-center">Manage Your Account</h3>
             </div>
             <div class="card-footer text-center bg-primary text-light">
-                <a class="btn btn-success" asp-action="MyAccountMenu">
+                <a class="btn btn-success" onclick="pageController.toggleMyAccountMenu();">
                     My Account
                 </a>
             </div>
@@ -40,7 +43,7 @@
                 <h3 class="text-center">Admin Maintenance</h3>
             </div>
             <div class="card-footer text-center bg-primary text-light">
-                <a class="btn btn-success" asp-action="MaintenanceMenu">
+                <a class="btn btn-success" onclick="pageController.toggleMaintenanceMenu()">
                     Maintenance
                 </a>
             </div>
@@ -52,7 +55,7 @@
     <div class="col-4">
     </div>
     <div class="col-4">
-        <div class="card">
+        <div class="card d-none" id="myAccountMenu">
             <div class="card-body">
                 <div class="list-group">
                     <a asp-action="CustomerIndex"
@@ -66,10 +69,9 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="col-4">
-        <div class="card">
+        <div class="card d-none" id ="maintenanceMenu">
             <div class="card-body">
                 <div class="list-group">
                     <a asp-action="ProductIndex"
@@ -93,3 +95,6 @@
         </div>
     </div>
 </div>
+@section Scripts {
+<script src="~/js/Home/IndexMenu.js"></script> 
+}

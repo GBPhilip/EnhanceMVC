@@ -31,8 +31,9 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="adminDropDown">
                                 <a asp-action="ProductIndex"
+                                   data-waitmsg="Please wait while loading Products..."
                                    asp-controller="Product" class="dropdown-item"
-                                onclick="mainController.pleaseWait()">
+                                   onclick="mainController.pleaseWait(this)">
                                     Products
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -51,7 +52,8 @@
 
                                 <a asp-action="VehicleTypeIndex"
                                    asp-controller="VehicleType" class="dropdown-item"
-                                onclick="mainController.pleaseWait()">
+                                   data-waitmsg="Please wait while loading Vehicles..."
+                                   onclick="mainController.pleaseWait(this)">
                                     Vehicle Types
                                 </a>
                             </div>

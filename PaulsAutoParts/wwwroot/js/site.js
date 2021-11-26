@@ -4,7 +4,13 @@
 // Write your JavaScript code.
 'use strict';
 var mainController = (function () {
-    function pleaseWait() {
+    function pleaseWait(ctl) {
+        if (ctl) {
+            let msg = $(ctl).data("waitmsg");
+            if (msg) {
+                $("#theWaitMessage").html(msg)
+            }
+        }
         $("#pleaseWait").removeClass("d-none");
         $("header").addClass("pleaseWaitArea");
         $("main").addClass("pleaseWaitArea");
@@ -14,3 +20,5 @@ var mainController = (function () {
         "pleaseWait": pleaseWait
     }
 })();
+
+

@@ -4,6 +4,11 @@
 // Write your JavaScript code.
 'use strict';
 var mainController = (function () {
+    function disableAllClicks() {
+        $("a").css("cursor", "arrow").click(false);
+        $("input[type='button']").attr("diasabled", "disabled");
+        $("button").attr("diasabled", "disabled");
+    }
     function pleaseWait(ctl) {
         if (ctl) {
             let msg = $(ctl).data("waitmsg");
@@ -15,9 +20,11 @@ var mainController = (function () {
         $("header").addClass("pleaseWaitArea");
         $("main").addClass("pleaseWaitArea");
         $("footer").addClass("pleaseWaitArea");
+        disableAllClicks();
     }
     return {
-        "pleaseWait": pleaseWait
+        "pleaseWait": pleaseWait,
+        "disableAllClicks" : disableAllClicks
     }
 })();
 

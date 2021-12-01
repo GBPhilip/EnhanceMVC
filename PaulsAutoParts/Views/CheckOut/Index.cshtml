@@ -15,7 +15,9 @@
   </div>
 </div>
 
-<form method="post" asp-action="ProcessCreditCard">
+<form method="post" asp-action="ProcessCreditCard"
+                    data-waitmsg="Please wait while processing credit card...<br /> Please don't refesh this page or click on the back button. <br />">
+
   <div class="row">
     <div class="col">
       <div asp-validation-summary="All" class="text-danger">
@@ -86,3 +88,6 @@
     <span><strong>@Model.Message</strong></span>
   </div>
 </div>
+@section Scripts {
+<script src="~/js/Submit.js"></script> 
+}

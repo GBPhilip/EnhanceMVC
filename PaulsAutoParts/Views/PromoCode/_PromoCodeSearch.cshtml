@@ -1,6 +1,6 @@
 @model PaulsAutoParts.ViewModelLayer.PromoCodeViewModel
 
-<form method="get" asp-action="Search">
+<form method="get" asp-action="Search" data-waitmsg="Please wait whilst searching for specified promotional codes...">
   <div class="card">
     <div class="card-header bg-primary text-light">
       <a id="searchHeader" class="d-block text-light" data-toggle="collapse" href="#searchBody" aria-expanded="false" aria-controls="searchBody">
@@ -20,7 +20,9 @@
       <div class="row">
         <div class="col-8">
           <button formnovalidate="formnovalidate" class="btn btn-success">Search</button>
-          <a class="btn btn-primary" asp-action="PromoCodeIndex">
+          <a class="btn btn-primary" asp-action="PromoCodeIndex"
+                    onclick="mainController.pleaseWait(this);"
+          data-waitmsg="Pleae wait whilst we are getting all the promo codes...">
             Reset
           </a>
           <a class="ml-5 btn btn-info" asp-action="Add">
@@ -34,5 +36,5 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </form>

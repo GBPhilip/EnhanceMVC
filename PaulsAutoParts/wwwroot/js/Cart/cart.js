@@ -27,7 +27,7 @@ var cartController = (function () {
     }
 
     function getMessage() {
-        let length = getLength;
+        let length = getLength();
         if (length <= 0) {
             clearExpiration();
             return "Your cart has expired";

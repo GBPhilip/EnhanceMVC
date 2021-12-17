@@ -2,6 +2,7 @@
 var cartController = (function () {
     let dateExpires;
     function setExpiration(expires) {
+        expires = expires.replace(/-/g, '/');
         dateExpires = new Date(expires);
     }
 

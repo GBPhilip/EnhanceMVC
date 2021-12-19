@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,7 +65,7 @@ namespace PaulsAutoParts.DataLayer
       // Perform Searching
       return _DbContext.VehicleTypes.Where(v =>
         (string.IsNullOrEmpty(entity.Make) ? true : v.Make.StartsWith(entity.Make)) &&
-        (string.IsNullOrEmpty(entity.Model) ? true : v.Make.StartsWith(entity.Model)) &&
+        (string.IsNullOrEmpty(entity.Model) ? true : v.Model.StartsWith(entity.Model)) &&
         (string.IsNullOrEmpty(entity.Year) ? true : v.Year == Convert.ToInt32(entity.Year))).ToList();
     }
     #endregion

@@ -1,20 +1,21 @@
 @{
-  ViewData["Title"] = "Product Maintenance";
+    ViewData["Title"] = "Product Maintenance";
 }
 
 <h2>Product Maintenance</h2>
 
-@if (Model.IsDetailVisible) {
-  <partial name="_ProductDetail" />
+@if (Model.IsDetailVisible)
+{
+    <partial name="_ProductDetail" />
 }
-else {
-  <partial name="_ProductSearch" />
-  <partial name="_ProductList" />
+else
+{
+    <partial name="_ProductSearch" />
+    <partial name="_ProductList" />
 }
 
-@section Scripts
-{
-  <script src="~/js/product/pageController.js"></script> 
-  <script src="~/js/product/product.js"></script> 
-  <partial name="_ValidationScriptsPartial" />
+@section Scripts {
+<script src="~/js/Product/pageController.js"></script>
+<script src="~/js/Product/product.js"></script>
+<partial name="_ValidationScriptsPartial" />
 }

@@ -26,7 +26,7 @@ namespace PaulsAutoParts.EntityLayer
     /// </summary>
     [Display(Name = "First Name")]
     [Required(ErrorMessage = "First Name must be filled in.")]
-    [StringLength(50, MinimumLength = 1, ErrorMessage = "First Name must be between {2} and {1} characters long.")]
+    [StringLength(50, MinimumLength = 2, ErrorMessage = "First Name must be between {2} and {1} characters long.")]
     public string FirstName { get; set; }
 
     /// <summary>
@@ -34,7 +34,7 @@ namespace PaulsAutoParts.EntityLayer
     /// </summary>
     [Display(Name = "Last Name")]
     [Required(ErrorMessage = "Last Name must be filled in.")]
-    [StringLength(75, MinimumLength = 1, ErrorMessage = "Last Name must be between {2} and {1} characters long.")]
+    [StringLength(75, MinimumLength = 2, ErrorMessage = "Last Name must be between {2} and {1} characters long.")]
     public string LastName { get; set; }
 
     /// <summary>
@@ -42,14 +42,16 @@ namespace PaulsAutoParts.EntityLayer
     /// </summary>
     [Display(Name = "Email Address")]
     [Required(ErrorMessage = "Email Address must be filled in.")]
-    [StringLength(255, MinimumLength = 1, ErrorMessage = "Email Address must be between {2} and {1} characters long.")]
+    [StringLength(255, MinimumLength = 3, ErrorMessage = "Email Address must be between {2} and {1} characters long.")]
+    [EmailAddress]
     public string EmailAddress { get; set; }
 
     /// <summary>
     /// Get/Set the Phone value
     /// </summary>
     [Display(Name = "Phone")]
-    [StringLength(50, MinimumLength = 0, ErrorMessage = "Phone must be between {2} and {1} characters long.")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "Phone must be between {2} and {1} characters long.")]
+    [Phone]
     public string Phone { get; set; }
 
     #region ToString Override

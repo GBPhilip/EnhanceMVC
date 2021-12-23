@@ -14,7 +14,7 @@
     <div class="col">
       <p>Date Purchased: @Model.OrderInformation.OrderDate.Value.ToShortDateString()</p>
     </div>
-    <div class="col">
+    <div class="col d-print-none">
       <p>CC Auth: @Model.PaymentInformation.CCAuth</p>
     </div>
   </div>
@@ -22,7 +22,7 @@
     <div class="col">
       <p>Order Number: @Model.OrderInformation.OrderHeaderId</p>
     </div>
-    <div class="col">
+    <div class="col d-print-none">
       <p>CC Response: @Model.PaymentInformation.Response</p>
     </div>
   </div>
@@ -64,4 +64,12 @@
   <div class="col text-center">
     <span><strong>@Model.Message</strong></span>
   </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">
+        <button type="button" onclick="window.print();" class="d-print-none">
+            Print Receipt
+        </button>
+    </div>
 </div>

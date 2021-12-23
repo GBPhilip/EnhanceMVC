@@ -87,3 +87,7 @@ body {
     top: 6em;
     transform: translate(-50%, 0);
 }
+
+.error {
+    color: red;
+}

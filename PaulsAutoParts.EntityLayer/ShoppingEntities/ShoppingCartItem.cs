@@ -55,6 +55,7 @@ namespace PaulsAutoParts.EntityLayer
     /// Get/Set the quantity
     /// </summary>
     [Display(Name = "Quantity")]
+    [Range(1,999999, ErrorMessage ="{0} must be between {1} and {2}")]
     public int Quantity { get; set; }
 
     /// <summary>

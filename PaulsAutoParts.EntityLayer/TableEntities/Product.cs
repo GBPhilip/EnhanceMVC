@@ -27,7 +27,7 @@ namespace PaulsAutoParts.EntityLayer
     /// </summary>
     [Display(Name = "Product Name")]
     [Required(ErrorMessage = "Product Name must be filled in.")]
-    [StringLength(50, MinimumLength = 1, ErrorMessage = "Product Name must be between {2} and {1} characters long.")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "Product Name must be between {2} and {1} characters long.")]
     public string ProductName { get; set; }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace PaulsAutoParts.EntityLayer
     /// </summary>
     [Display(Name = "Category")]
     [Required(ErrorMessage = "Category must be filled in.")]
-    [StringLength(20, MinimumLength = 0, ErrorMessage = "Category must be between {2} and {1} characters long.")]
+    [StringLength(20, MinimumLength = 3, ErrorMessage = "Category must be between {2} and {1} characters long.")]
     public string Category { get; set; }
 
     /// <summary>
@@ -64,6 +64,7 @@ namespace PaulsAutoParts.EntityLayer
     [Display(Name = "Price")]
     [DataType(DataType.Currency)]
     [Column(TypeName = "decimal(18,2)")]
+    [Range(0.01,99999, ErrorMessage = "{0} Must be Between {1} and {2}")]
     public decimal Price { get; set; }
 
     /// <summary>

@@ -1,4 +1,5 @@
-﻿let pageController = (function () {
+﻿'use strict';
+let pageController = (function () {
     function setSearchValues() {
         let searchValues =
             $("#SearchEntity_Code").val();

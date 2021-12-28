@@ -21,8 +21,4 @@
     <ProjectReference Include="..\PaulsAutoParts.ViewModelLayer\PaulsAutoParts.ViewModelLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\js\CheckOut\" />
-  </ItemGroup>
-
 </Project>

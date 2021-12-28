@@ -1,4 +1,5 @@
-﻿let pageController = (function () {
+﻿'use strict';
+let pageController = (function () {
     function addValidationRules() {
         let maxYear = new Date().getFullYear() + 2;
         $.validator.addMethod("yearplusone",

@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿'use strict';
+$(document).ready(function () {
     mainController.formSubmit();
 
     pageController.setSearchValues();

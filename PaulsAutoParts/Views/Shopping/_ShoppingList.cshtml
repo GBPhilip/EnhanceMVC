@@ -51,7 +51,8 @@
               </a>
             }
             else {
-              <a class="btn btn-info" asp-action="Add" asp-route-id="@item.ProductId">
+              <a class="btn btn-info" id="updateCart" data-isadding="true" 
+               onclick="pageController.modifyCart(@item.ProductId, this)">
                 Add to Cart
               </a>
             }

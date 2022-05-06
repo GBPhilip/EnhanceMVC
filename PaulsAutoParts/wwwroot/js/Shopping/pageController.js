@@ -41,9 +41,47 @@ let pageController = (function () {
         $("#nameCategory").collapse(value);
     }
 
-    return {
-        "setSearchArea": setSearchArea
+    function modifyCart(id, ctl) {
+        if (Boolean($(ctl).data("isadding"))) {
+            addToCart(id);
+
+            $(ctl).text("Remove from cart");
+            $(ctl).data("isadding", false);
+            $(ctl).removeClass("btn-info")
+                .addClass("btn-danger");
+        }
+        else {
+            removeFromCart(id);
+            $(ctl).text("Add to cart");
+            $(ctl).data("isadding", true);
+            $(ctl).removeClass("btn-danger")
+                .addClass("btn-info");
+        }
     }
+
+    function addToCart(id) {
+        let settings = {
+            url: "/api/ShoppingApi/AddToCart",
+            contentType: "application/json",
+            data:JSON.stringify(id)
+        }
+        $.post(settings)
+            .done(function (data) {
+                console.log("Product Added to Shopping Cart");
+            })
+            .fail(function (error) {
+                console.error(error);
+            });
+    }
+
+    function removeFromCart(id) {
+
+    }
+    return {
+        "setSearchArea": setSearchArea,
+        "modifyCart": modifyCart
+    }
+
 })();
 
 $(document).ready(function () {

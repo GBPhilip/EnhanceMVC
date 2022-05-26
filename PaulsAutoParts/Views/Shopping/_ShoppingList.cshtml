@@ -46,7 +46,8 @@
           </div>
           <div class="card-footer bg-primary text-light">
             @if (item.IsInCart) {
-              <a class="btn btn-danger" asp-action="Remove" asp-route-id="@item.ProductId">
+              <a class="btn btn-danger" id="updateCart" data-isadding="false"
+              onclick="pageController.modifyCart(@item.ProductId, this)">
                 Remove From Cart
               </a>
             }

@@ -67,6 +67,7 @@ let pageController = (function () {
         }
         $.post(settings)
             .done(function (data) {
+                mainController.modifyItemsInCartText(true);
                 console.log("Product Added to Shopping Cart");
             })
             .fail(function (error) {
@@ -75,11 +76,22 @@ let pageController = (function () {
     }
 
     function removeFromCart(id) {
+        $.ajax({
+            url: "/api/ShoppingApi/RemoveFromCart/" + id,
+            type: "DELETE"
+        })
+            .done(function (data) {
+                mainController.modifyItemsInCartText(false);    
+                console.log("Product Removed From Shpping Cart");
+            })
+            .fail(function (error) {
+                console.error(error);
+            });
 
     }
     return {
         "setSearchArea": setSearchArea,
-        "modifyCart": modifyCart
+        "modifyCart": modifyCart,
     }
 
 })();

@@ -43,13 +43,30 @@ var mainController = (function () {
         $("#searchBody").collapse(isSearchFilledIn() ? "show" : "hide");
     }
 
+    function modifyItemsInCartText(isAdding) {
+        let value = $("#itemsInCart").text();
+        let count = 0;
+        let pos = 0;
+        pos = value.indexOf(" ");
+        count = parseInt(value.substring(0, pos));
+        if (isAdding) {
+            count++;
+        }
+        else {
+            count--;
+        }
+        value = count.toString() + " " + value.substring(pos);
+        $("#itemsInCart").text(value);
+    }
+
     return {
         "pleaseWait": pleaseWait,
         "disableAllClicks": disableAllClicks,
         "formSubmit": formSubmit,
         "setSearchValues": setSearchValues,
         "isSearchFilledIn": isSearchFilledIn,
-        "setSearchArea": setSearchArea
+        "setSearchArea": setSearchArea,
+        "modifyItemsInCartText": modifyItemsInCartText
     }
 })();
 

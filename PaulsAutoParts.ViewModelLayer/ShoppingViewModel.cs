@@ -173,9 +173,8 @@ namespace PaulsAutoParts.ViewModelLayer
       }
 
       // Find out which products are in the cart already
-      if (Cart.Items.Count > 0) {
+      if (Cart?.Items.Count > 0) {
         foreach (Product item in DataCollection) {
-          // Using .Any() because performance is better than .Count()
           if (Cart.Items.Where(ci => ci.ProductId == item.ProductId).Any()) {
             item.IsInCart = true;
           }

@@ -36,5 +36,32 @@ namespace PaulsAutoParts.ControllersApi
 
             return StatusCode(StatusCodes.Status200OK, true);
         }
+
+        [HttpDelete("{id}", Name ="RemoveFromCart")]
+        public IActionResult RemoveFromCart(int id)
+        {
+            ShoppingViewModel viewModel = new(_repo, _vehicleRepo, UserSession.Cart);
+            base.SetViewModelFromSession(viewModel, UserSession);
+            viewModel.RemoveFromCart(viewModel.Cart, id, UserSession.CustomerId.Value);
+            UserSession.Cart = viewModel.Cart;
+            return StatusCode(StatusCodes.Status200OK, true);
+        }
+
+        [HttpGet("{year}", Name = "GetMakes")]
+        public IActionResult GetMakes(int year)
+        {
+            ShoppingViewModel vm = new(_repo, _vehicleRepo, UserSession.Cart);
+            var makes = vm.GetMakes(year);
+            return StatusCode(StatusCodes.Status200OK, makes);
+        }
+
+        [HttpGet("{year}/{make}", Name = "GetModels")]
+        public IActionResult GetModels(int year, string make)
+        {
+            ShoppingViewModel vm = new(_repo, _vehicleRepo, UserSession.Cart);
+            var models = vm.GetModels(year,make);
+            return StatusCode(StatusCodes.Status200OK, models);
+        }
     }
+
 }

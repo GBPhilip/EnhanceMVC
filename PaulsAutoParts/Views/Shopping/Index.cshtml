@@ -22,7 +22,7 @@
             <div class="form-group">
               <label asp-for="SearchEntity.Year"></label>
               <select class="form-control"
-                      onchange="this.form.submit();"
+                      onchange="pageController.getMakes(this);"
                       asp-for="SearchEntity.Year"
                       asp-items="@(new SelectList(Model.Years))">
               </select>
@@ -30,7 +30,7 @@
             <div class="form-group">
               <label asp-for="SearchEntity.Make"></label>
               <select class="form-control"
-                      onchange="this.form.submit();"
+                      onchange="pageController.getModels(this);"
                       asp-for="SearchEntity.Make"
                       asp-items="@(new SelectList(Model.Makes))">
               </select>

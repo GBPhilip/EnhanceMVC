@@ -40,7 +40,7 @@ namespace PaulsAutoParts.DataLayer
     }
     #endregion
 
-    #region Search Method
+   
     public List<Product> Search(ProductSearch entity)
     {
       // Perform Searching
@@ -48,8 +48,14 @@ namespace PaulsAutoParts.DataLayer
         (string.IsNullOrEmpty(entity.ProductName) ? true : p.ProductName.Contains(entity.ProductName)) &&
         (string.IsNullOrEmpty(entity.Category) ? true : p.Category.Contains(entity.Category))).ToList();
     }
-    #endregion
 
+    public List<string> SearchCategories(string searchValue)
+        {
+            return _DbContext.Products
+                .Select(p => p.Category).Distinct()
+                .Where(p => p.StartsWith(searchValue))
+                .OrderBy(p => p).ToList();
+        }
     #region CreateEmpty Method
     public virtual Product CreateEmpty()
     {
@@ -104,5 +110,6 @@ namespace PaulsAutoParts.DataLayer
       return true;
     }
     #endregion
+
   }
 }

@@ -62,6 +62,19 @@ namespace PaulsAutoParts.ControllersApi
             var models = vm.GetModels(year,make);
             return StatusCode(StatusCodes.Status200OK, models);
         }
+
+        [HttpGet("{searchValue}", Name = "SearchCategories")]
+        public IActionResult SearchCategories(string searchValue)
+        {
+            ShoppingViewModel vm = new ShoppingViewModel(_repo, _vehicleRepo, UserSession.Cart);
+            if (string.IsNullOrEmpty(searchValue))
+            {
+                vm.GetCategories();
+                return StatusCode(StatusCodes.Status200OK, vm.Categories);
+            }
+            return StatusCode(StatusCodes.Status200OK, vm.SearchCategories(searchValue));
+        }
+
     }
 
 }

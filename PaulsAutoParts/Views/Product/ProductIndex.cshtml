@@ -1,7 +1,9 @@
 @{
     ViewData["Title"] = "Product Maintenance";
 }
-
+@section HeadStyles {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"; />
+}
 <h2>Product Maintenance</h2>
 
 @if (Model.IsDetailVisible)
@@ -15,7 +17,8 @@ else
 }
 
 @section Scripts {
-<script src="~/js/Product/pageController.js"></script>
 <script src="~/js/Product/product.js"></script>
+<script src="~/js/Product/pageController.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js";></script>
 <partial name="_ValidationScriptsPartial" />
 }

@@ -30,10 +30,51 @@ let pageController = (function () {
         mainController.setSearchValues(searchValues);
     }
 
+    function modelsAutoComplete() {
+        $("#SelectedEntity_Model").autocomplete({
+            source: searchModels, minLength: 1
+        });
+    }
+
+    function makesAutoComplete() {
+        $("#SelectedEntity_Make").autocomplete({
+            source: searchMakes, minLength: 1
+        });
+    }
+
+    function searchMakes(request, response) {
+        $.get("/api/VehicleTypeApi/SearchMakes/" +
+            request.term, function (data) {
+                response(data);
+            })
+            .fail(function (error) {
+                console.error(error);
+            });
+    }
+
+    function searchModels(request, response) {
+        let year = $("#SelectedEntity_Year").val();
+        let make = $("#SelectedEntity_Make").val();
+
+        if (make) {
+            $.get("/api/VehicleTypeApi/SearchModels/" + year + "/" +
+                make + "/" + request.term, function (data) {
+                    response(data);
+                })
+                .fail(function (error) {
+                    console.error(error);
+                });
+        }
+        else {
+            searchModels(request, response);
+        }
+    }
+
     return {
         "setSearchValues": setSearchValues,
         "setSearchArea": mainController.setSearchArea,
         "isSearchFilledIn": mainController.isSearchFilledIn,
-        "addValidationRules": addValidationRules
+        "addValidationRules": addValidationRules,
+        "makesAutoComplete": makesAutoComplete
     }
 })();

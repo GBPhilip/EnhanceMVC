@@ -114,6 +114,11 @@ namespace PaulsAutoParts.ViewModelLayer
     }
     #endregion
 
+        public List<string> SearchMakes(string searchValue)
+        {
+            return ((VehicleTypeRepository)Repository)
+                .SearchMakes(searchValue);
+        }
     #region CreateEmptyEntity Method
     public override void CreateEmptyEntity()
     {

@@ -1,10 +1,12 @@
 @{
     ViewData["Title"] = "Vehicle Type Maintenance";
 }
+@section HeadStyles {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" ; />
+}
+    <h2>Vehicle Type Maintenance</h2>
 
-<h2>Vehicle Type Maintenance</h2>
-
-@if (Model.IsDetailVisible)
+    @if (Model.IsDetailVisible)
 {
     <partial name="_VehicleTypeDetail" />
 }
@@ -15,7 +17,8 @@ else
 }
 
 @section Scripts {
-<script src="~/js/VehicleType/pageController.js"></script>
-<script src="~/js/VehicleType/vehicleType.js"></script>
-<partial name="_ValidationScriptsPartial" />
+    <script src ="https://code.jquery.com/ui/1.12.1/jquery-ui.js";></script>
+    <script src="~/js/VehicleType/vehicleType.js"></script>
+    <script src="~/js/VehicleType/pageController.js"></script>
+    <partial name="_ValidationScriptsPartial" />
 }

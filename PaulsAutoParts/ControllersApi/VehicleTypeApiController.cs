@@ -26,5 +26,12 @@ namespace PaulsAutoParts.ControllersApi
             VehicleTypeViewModel vm = new(_repo);
             return StatusCode(StatusCodes.Status200OK, vm.SearchMakes(make));
         }
+
+        [HttpGet("{year}/{make}/{model}", Name = "SearchModels")]
+        public IActionResult SearchModels(int year, string make, string model)
+        {
+            VehicleTypeViewModel vm = new(_repo);
+            return StatusCode(StatusCodes.Status200OK, vm.SearchModels(year, make, model));
+        }
     }
 }

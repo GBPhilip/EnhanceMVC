@@ -75,6 +75,7 @@ let pageController = (function () {
         "setSearchArea": mainController.setSearchArea,
         "isSearchFilledIn": mainController.isSearchFilledIn,
         "addValidationRules": addValidationRules,
-        "makesAutoComplete": makesAutoComplete
+        "makesAutoComplete": makesAutoComplete,
+        "modelsAutoComplete": modelsAutoComplete
     }
 })();

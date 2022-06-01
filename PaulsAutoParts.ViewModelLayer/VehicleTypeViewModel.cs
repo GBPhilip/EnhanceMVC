@@ -119,8 +119,14 @@ namespace PaulsAutoParts.ViewModelLayer
             return ((VehicleTypeRepository)Repository)
                 .SearchMakes(searchValue);
         }
-    #region CreateEmptyEntity Method
-    public override void CreateEmptyEntity()
+
+        public List<string> SearchModels(int year, string make, string searchValue)
+        {
+            return ((VehicleTypeRepository)Repository)
+                .SearchModels(year, make, searchValue);
+        }
+        #region CreateEmptyEntity Method
+        public override void CreateEmptyEntity()
     {
       SelectedEntity = Repository.CreateEmpty();
     }

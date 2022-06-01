@@ -79,6 +79,14 @@ namespace PaulsAutoParts.DataLayer
                 .OrderBy(v => v).ToList();
         }
 
+        public List<string> SearchModels(int year, string make, string model)
+        {
+            return _DbContext.VehicleTypes
+                .Where(v => v.Year == year && v.Make==make && v.Model.StartsWith(model))
+                .Select(v => v.Model).Distinct()
+                .OrderBy(v => v).ToList();
+        }
+
         #region CreateEmpty Method
         public virtual VehicleType CreateEmpty()
         {

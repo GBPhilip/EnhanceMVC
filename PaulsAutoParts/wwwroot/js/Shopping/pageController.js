@@ -132,15 +132,62 @@ let pageController = (function () {
             });
     }
 
+    function getYears() {
+        $("#yearMakeModel").on("show.bs.collapse", function () {
+            if ($("SearchEntity_Year option").length === 0) {
+                let elem = $("#SearchEntity_Year");
+                elem.attr("Style", "font-style: italic;");
+                elem.append("<option>Loading...</option>");
+                $("#SearchEntity_Make").empty();
+                $("#SearchEntity_Model").empty();
+                $.get("api/ShoppingApi/GetYears", function (data) {
+                    elem.empty();
+                    elem.removeAttr("style");
+                    $(data).each(function () {
+                        elem.append(`<option>${this}</option>`);
+                    });
+                })
+                    .fail(function (error) {
+                        Console.error(error);
+                    });
+            }
+        });
+    }
+
+    function getCategories() {
+        $("#nameCategory").on("show.bs.collapse", function () {
+            if ($("SearchEntity_Category option").length === 0) {
+                let elem = $("#SearchEntity_Category");
+                elem.attr("Style", "font-style: italic;");
+                elem.append("<option>Loading...</option>");
+                $("#SearchEntity_Make").empty();
+                $("#SearchEntity_Model").empty();
+                $.get("api/ShoppingApi/GetCategories", function (data) {
+                    elem.empty();
+                    elem.removeAttr("style");
+                    $(data).each(function () {
+                        elem.append(`<option>${this}</option>`);
+                    });
+                })
+                    .fail(function (error) {
+                        Console.error(error);
+                    });
+            }
+        });
+    }
+
     return {
         "setSearchArea": setSearchArea,
         "modifyCart": modifyCart,
         "getMakes": getMakes,
-        "getModels": getModels
+        "getModels": getModels,
+        "getYears": getYears,
+        "getCategories": getCategories
     }
-
 })();
 
 $(document).ready(function () {
+    pageController.getYears();
+    pageController.getCategories();
     pageController.setSearchArea();
 });

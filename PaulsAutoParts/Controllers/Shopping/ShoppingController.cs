@@ -33,10 +33,6 @@ namespace PaulsAutoParts.Controllers
       // Set "Common" View Model Properties from Session
       base.SetViewModelFromSession(vm, UserSession);
 
-      // Load Drop-Downs
-      vm.GetYears();
-      vm.GetCategories();
-
       return View(vm);
     }
     #endregion

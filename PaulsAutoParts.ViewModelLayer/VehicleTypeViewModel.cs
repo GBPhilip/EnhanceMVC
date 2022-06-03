@@ -31,7 +31,7 @@ namespace PaulsAutoParts.ViewModelLayer
     public List<VehicleType> DataCollection { get; set; }
     public VehicleType SelectedEntity { get; set; }
     public VehicleTypeSearch SearchEntity { get; set; }
-    #endregion
+    #endregion``
 
     #region Init Method
     public override void Init()

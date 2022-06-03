@@ -109,5 +109,10 @@ namespace PaulsAutoParts.DataLayer
       return true;
     }
     #endregion
+
+        public bool DoesCodeExist(string code)
+        {
+            return _DbContext.PromoCodes.Any(x => x.PromotionalCode == code);
+        }
   }
 }

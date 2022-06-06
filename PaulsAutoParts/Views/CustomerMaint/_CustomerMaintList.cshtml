@@ -18,7 +18,7 @@ else {
     </thead>
     <tbody>
       @foreach (Customer item in Model.DataCollection) {
-        <tr>
+        <tr id ="@item.CustomerId">
           <td>
             <a asp-action="Edit"
                asp-route-id="@item.CustomerId"
@@ -36,13 +36,7 @@ else {
           <td>@Html.DisplayFor(m => item.EmailAddress)</td>
           <td>@Html.DisplayFor(m => item.Phone)</td>
           <td>
-            @Html.ActionLink("Delete", "Delete",
-                new { id = item.CustomerId },
-                new
-                  {
-                    onclick = "return confirm('Delete this Customer?');",
-                    @class = "btn btn-danger"
-                  })
+              <a class="btn btn-danger" onclick="pageController.deleteCustomer(@item.CustomerId)">Delete</a>
           </td>
         </tr>
       }

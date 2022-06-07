@@ -2,7 +2,7 @@
 let pageController = (function () {
     function setCountdown() {
         cartController.setExpiration(
-            $("#cartExpires").text()); 
+            $("#cartExpires").text());
         if (!cartController.isExpired()) {
             let int = setInterval(function () {
                 $("#cartExpirationMsg").text(cartController.getMessage());
@@ -14,16 +14,31 @@ let pageController = (function () {
         }
     }
 
-    function deleteCartItem(id){
-        if (confirm('Delete this Product from Cart?')){
-$.ajax({
-    url: "/api/ShoppingApi/RemoveFromCart/" +id,
-    type: "DELETE"
-})
+    function deleteCartItem(id) {
+        if (confirm('Delete this Product from Cart?')) {
+            $.ajax({
+                url: "/api/ShoppingApi/RemoveFromCart/" + id,
+                type: "DELETE"
+            })
+            .done(function (data) {
+                if (data) {
+                    $("#"+id).remove();
+                    mainController.modifyItemsInCartText(false);
+                    calculateNewTotal();
+                }
+            })
+            .fail(function (error) {
+                console.error(error);
+            });
         }
     }
- 
+
+    function calculateNewTotal() {
+
+    }
+
     return {
-        "setCountdown": setCountdown
+        "setCountdown": setCountdown,
+        "deleteCartItem": deleteCartItem
     }
 })();

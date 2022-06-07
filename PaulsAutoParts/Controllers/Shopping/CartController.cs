@@ -98,28 +98,5 @@ namespace PaulsAutoParts.Controllers
       return View("Index", vm);
     }
 
-    [HttpGet]
-    public IActionResult Delete(int id)
-    {
-      // Set Cart from Session
-      ShoppingViewModel vm = new(_repo, _vehicleRepo, UserSession.Cart);
-
-      // Set "Common" View Model Properties from Session
-      base.SetViewModelFromSession(vm, UserSession);
-
-      // Set Cart into View Model
-      vm.Cart = UserSession.Cart;
-
-      // Remove item to cart
-      vm.RemoveFromCart(vm.Cart, id, UserSession.CustomerId.Value);
-
-      // Set cart into session
-      UserSession.Cart = vm.Cart;
-
-      // Must clear model state to have new values appear
-      ModelState.Clear();
-
-      return View("Index", vm);
-    }
   }
 }

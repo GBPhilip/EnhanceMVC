@@ -36,7 +36,7 @@ else
         <tbody>
             @foreach (ShoppingCartItem item in Model.Cart.Items)
             {
-                <tr>
+                <tr id="@item.ProductId">
                     <td>
                         <form method="post" asp-action="UpdateQuantity">
                             <div class="row">
@@ -54,13 +54,9 @@ else
                     <td class="text-right">@Html.DisplayFor(m => item.Price)</td>
                     <td class="text-right">@Html.DisplayFor(m => item.TotalPrice)</td>
                     <td>
-                        @Html.ActionLink("Delete", "Delete",
-                new { id = item.ProductId },
-                new
-                {
-                onclick = "return confirm('Delete this Product from Cart?');",
-                @class = "btn btn-danger"
-                })
+                        <a class="btn btn-danger" onclick="pageController.deleteCartItem(@item.ProductId)">
+                            Delete
+                        </a>
                     </td>
                 </tr>
             }
@@ -118,4 +114,5 @@ else
 @section Scripts {
 <script src="~/js/cart/cart.js"></script>
 <script src="~/js/cart/expiry.js"></script>
+<script src="~/js/car/pageControler.js"></script>
 }
